@@ -1,4 +1,6 @@
 package uni;
+import base.Person;
+
 import java.util.HashMap;
 
 public class Transcript {
@@ -15,7 +17,8 @@ public class Transcript {
 
     }
     public void printTranscript() {
-        System.out.println("Student's Transcript" + studentID + ":");
+        Person person = Person.findByID(Student.findByID(studentID).PersonID);
+        System.out.println("Student " + person.name + ":");
         for (HashMap.Entry<Integer, Double> entry : transcript.entrySet()) {
             int presentedCourseID = entry.getKey();
             double grade = entry.getValue();
